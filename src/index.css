@@ -19,7 +19,7 @@ button,
 label,
 input,
 p {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 h2 {
   font-size: 4.8rem;
@@ -30,24 +30,40 @@ h3 {
 }
 h4,
 h5 {
-  font-size: 2.8rem;
+  font-size: 2rem;
 }
 a {
   color: white;
   text-decoration: none;
-}
-button {
-  padding: 2rem 6rem;
-  background: #4c6e97;
-  border: none;
-  color: white;
-  font-size: 1.8rem;
   cursor: pointer;
-  transition: background 1s ease-in-out;
+}
+.error-msg {
+  color: red;
+  font-size: 1rem;
+}
+.btn {
+  padding: 1rem 2rem;
+  background: black;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: background 0.5s ease-in-out;
   animation: cloudAnimation 2s forwards;
 }
-button:hover {
-  background: #354a64;
+.btn:hover {
+  background: white;
+  color: black;
+}
+.loading-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform: -webkit-translate(-50%, -50%);
+  transform: -moz-translate(-50%, -50%);
+  transform: -ms-translate(-50%, -50%);
 }
 /* Nav section with hero */
 
@@ -87,7 +103,46 @@ nav ul li a:hover {
   text-decoration: none;
   color: white;
 }
+.custom-modal {
+  margin: 0 auto;
+}
+.nav-bar {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.nav-bar .nav-link {
+  color: white;
+  padding: 1rem;
+}
+.nav-bar .nav-link:hover {
+  transition: 0.5s ease-in-out;
+  /* animation: cloudAnimation 2s forwards; */
+  transform: scale(1.3);
+}
+.user-navbar {
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  transform: translate(10%, -50%);
+}
+.logo-navbar {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  transform: translate(10%, -50%);
+}
+.logo-navbar .logo-container {
+  height: 5rem;
+  width: 10rem;
+}
+.user-navbar .nav-link {
+  color: white;
+}
+
 .hero {
+  position: relative;
   min-height: 90vh;
   background: linear-gradient(rgba(0, 0, 0, 0.5), transparent);
   background-repeat: no-repeat;
@@ -107,24 +162,35 @@ nav ul li a:hover {
   padding: 5rem;
 }
 
-
-/* Contact */
-#signup {
+/* About */
+#about-us {
   min-height: 100vh;
   background: linear-gradient(rgba(0, 0, 0, 0.5), transparent);
   background-size: cover;
   background-repeat: no-repeat;
+}
+#about-us .card {
+  width: 100%;
+  background: none;
+  border: none;
+  color: white;
+}
+.about-us-container {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
+.about-us-container .row {
+  margin: auto;
+  width: 90%;
+}
 .form-wrapper {
-  background: rgba(19, 28, 39, 0.8);
-  width: 50rem;
-  color: white;
+  /* background: rgba(19, 28, 39, 0.8); */
+  /* width: 50rem; */
+  /* color: white; */
   border-radius: 2rem;
-  padding: 4rem 2rem;
+  padding: 2rem;
+  font-size: 1.2rem;
 }
 .form-head {
   text-align: center;
@@ -135,9 +201,9 @@ nav ul li a:hover {
   padding: 3rem;
   text-align: center;
 }
-.form-wrapper label {
+/* .form-wrapper label {
   margin: 0rem 3rem;
-}
+} */
 .form-input-wrapper {
   display: flex;
 }
@@ -145,8 +211,186 @@ nav ul li a:hover {
   padding: 1rem;
   border-radius: 1rem;
   margin-top: 2rem;
-  float: right;
+  font-size: 1.2rem;
 }
 .form-wrapper input {
   padding: 1rem 3rem;
+}
+/* Contact Us Page */
+
+.contact-us-hero {
+  min-height: 40vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), transparent);
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  margin-bottom: 10rem;
+}
+.contact-us-hero h3 {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, 175%);
+}
+.contact-us-container {
+  min-height: 60vh;
+}
+/* User dashboard */
+.booking-card {
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.booking-card .delete-btn{
+  background-color: red;
+  margin-left: 1rem;
+}
+.card-image {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.card-image:hover img {
+  transform: scale(1.1);
+}
+.card-image .overlay {
+  position: absolute;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.card-title {
+  position: absolute;
+  bottom: 0;
+  padding: 1rem;
+}
+.card-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: 0.5s ease all;
+}
+/* Booking */
+.booking-page-img {
+  height: 40vh;
+}
+.booking-page-img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.book-service-container {
+}
+.book-service-card {
+  border: 1px solid darkgrey;
+  padding: 1rem;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.book-service-card img {
+  height: 2rem;
+}
+/* Book now modal */
+img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.book-modal-now-container .form-control {
+  width: 10rem;
+}
+.book-modal-now-container .left span {
+  font-size: 1.25rem;
+}
+.book-now-modal-img {
+}
+.react-time-picker__wrapper {
+  border: none;
+}
+.react-time-picker__clear-button {
+  display: none;
+}
+.confirmation-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Profile page */
+.profile-page-hero {
+  position: relative;
+  min-height: 40vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), transparent);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; */
+  text-align: center;
+}
+.profile-page-hero .welcome-text {
+  position: absolute;
+  top: 50%;
+  right: 27%;
+  transform: translate(-100%, -50%);
+}
+.profile-page .nav-tabs {
+  border-bottom: none;
+}
+.profile-page .details .nav-link {
+  color: black;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: background 0.5s ease-in-out;
+  animation: cloudAnimation 2s forwards;
+}
+.profile-page .details .nav-link:hover {
+  border-radius: 10px;
+}
+.profile-page .nav-pills .nav-link.active {
+  background-color: black;
+  border: none;
+  border-radius: 10px;
+  color: white;
+}
+
+.profile-page .no-bookings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+}
+/* Footer */
+
+.footer {
+  background-color: #131c27;
+  color: white;
+  padding: 2rem 0;
+  /* position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 99; */
+}
+.footer svg {
+  height: 20px;
+  fill: white;
+}
+.footer .contact-detail {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.footer .contact-detail p {
+  margin: 0 0 0 1rem;
 }
