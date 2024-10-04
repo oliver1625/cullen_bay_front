@@ -42,6 +42,7 @@ function Login(props) {
       localStorage.setItem("user", response.data.email);
       localStorage.setItem("userId", response.data._id); 
       localStorage.setItem("token", response.data.token);
+      localStorage.setItem("first_name", response.data.name);
       setIsLoggedin(true);
       window.location.reload(false);
       // navigate("/home");
@@ -59,7 +60,7 @@ function Login(props) {
       >
         <ModalBody>
           <div className="px-4">
-            <h3>Login</h3>
+            <h2>Login</h2>
           </div>
           <Form onSubmit={handleLogin} className="form-wrapper">
             <FormGroup>

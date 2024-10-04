@@ -2,16 +2,21 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import axios from "axios";
 import moment from "moment";
 import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 import { Modal, Form, FormGroup, Label, Button, ModalBody } from "reactstrap";
 
-function CheckoutForm({bookingDetails, handleForm }) {
+function CheckoutForm({
+  bookingDetails,
+  handleForm,
+}) {
   const stripe = useStripe();
   const elements = useElements();
   const [processing, setProcessing] = useState(false);
   const [error, setError] = useState("");
   const token = localStorage.getItem("token");
-
   const [confirmModal, setConfirmModal] = useState(false);
+  const location = useLocation();
+  const isProfilePage = location.pathname === "/profile";
   const toggleConfrimModal = () => {
     setConfirmModal(!confirmModal);
   };
@@ -66,23 +71,33 @@ function CheckoutForm({bookingDetails, handleForm }) {
     e.preventDefault();
     handleForm(e);
     handlePayment(e);
-    toggleConfrimModal()
+    if (!error) toggleConfrimModal();
   };
-
   return (
     <Form onSubmit={handleFormAndPayment}>
-      <FormGroup>
-        <Label for="card" className="mb-4">Card Information</Label>
-        <CardElement id="card" />
-      </FormGroup>
-      <Button
-        type="submit"
-        disabled={!stripe || processing}
-        onClick={handleFormAndPayment}
-        className="my-4"
-      >
-        {processing ? "Processing..." : "Book and Pay $300"}
-      </Button>
+      {!isProfilePage ? (
+        <div>
+          <FormGroup>
+            <Label for="card" className="mb-4">
+              Card Information
+            </Label>
+            <CardElement id="card" />
+          </FormGroup>
+          <Button
+            type="submit"
+            disabled={!stripe || processing}
+            onClick={handleFormAndPayment}
+            className="my-4"
+          >
+            {processing ? "Processing..." : "Book and Pay $300"}
+          </Button>
+        </div>
+      ) : (
+        <Button type="submit" onClick={handleForm} className="my-4">
+          Submit
+        </Button>
+      )}
+
       {error && <div>{error}</div>}
       <Modal
         isOpen={confirmModal}

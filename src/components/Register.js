@@ -61,6 +61,7 @@ function Register(props) {
       //     navigate("/home");
       //   });
     } catch (err) {
+      console.log(err.message, "error");
       setError(err.response?.data.message || "An error occured during signup");
       setSuccess(null);
     }
@@ -76,7 +77,7 @@ function Register(props) {
       >
         <ModalBody>
           <div className="px-4">
-            <h3>Sign up to Book Now</h3>
+            <h2>Sign up to Book Now</h2>
           </div>
           <Form onSubmit={handleRegister} className="form-wrapper">
             <FormGroup>
@@ -128,7 +129,7 @@ function Register(props) {
               </Col>
             </FormGroup>
             <FormGroup>
-              <Label sm={2} for="phoneNumber">
+              <Label sm={8} for="phoneNumber">
                 Phone Number
               </Label>
               <Col sm={8}>

@@ -73,7 +73,7 @@ function Navbar() {
   };
   return (
     <div className="top-navbar">
-      <div className="top-navbar" >
+      <div className="top-navbar">
         <div className="logo-navbar">
           <div className="logo-container">
             <img src={Logo} alt="" />
@@ -109,6 +109,11 @@ function Navbar() {
               <NavItem>
                 <NavLink href="/about-us">
                   <Link to="/about-us">About Us</Link>
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/about-us">
+                  <Link to="/about-us">Book Now</Link>
                 </NavLink>
               </NavItem>
             </Nav>

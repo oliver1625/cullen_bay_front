@@ -39,14 +39,14 @@ import CheckoutForm from "./CheckoutForm";
 
 function BookNow(props) {
   const { bookNowModal, bookNowToggle, bookingId } = props;
-//   const [confirmModal, setConfirmModal] = useState(false);
+  //   const [confirmModal, setConfirmModal] = useState(false);
   const stripePromise = loadStripe(
     "pk_test_51PeqGxGJgFtp3kPeKU1eYy60mQ0LOLyBH6ZSDZXfZVA79QO58imzUgcRvGaa2Utw3UEqM7R74Tm8PHuL7RLi9Oeh009tyhHf4k"
   ); // Use your publishable key
 
-//   const toggleConfrimModal = () => {
-//     setConfirmModal(!confirmModal);
-//   };
+  //   const toggleConfrimModal = () => {
+  //     setConfirmModal(!confirmModal);
+  //   };
 
   const [numberofParticipants, setnumberofParticipants] = useState(0);
   const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
@@ -55,8 +55,9 @@ function BookNow(props) {
   const [bookingDetails, setBookingDetails] = useState([]);
 
   const userId = localStorage.getItem("userId");
+  const email = localStorage.getItem("user");
   const token = localStorage.getItem("token");
-
+  const first_name = localStorage.getItem("name");
   const handleForm = async (e) => {
     e.preventDefault();
 
@@ -69,6 +70,8 @@ function BookNow(props) {
               numberofParticipants,
               date,
               time,
+              email,
+              first_name,
             },
             {
               headers: {
@@ -82,6 +85,8 @@ function BookNow(props) {
               numberofParticipants,
               date,
               time,
+              email,
+              first_name,
             },
             {
               headers: {
@@ -90,8 +95,6 @@ function BookNow(props) {
               },
             }
           );
-
-      console.log(response.data, 'form data');
 
       if (isUpdate) {
         // Update booking details
@@ -216,6 +219,8 @@ function BookNow(props) {
                   <CheckoutForm
                     handleForm={handleForm}
                     bookingDetails={bookingDetails}
+                    bookingId={bookingId}
+                    numberofParticipants={numberofParticipants}
                   />
                   {/* <Button onClick={toggleConfrimModal}>Submit</Button> */}
                 </Form>
