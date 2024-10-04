@@ -8,6 +8,7 @@ import AdminDashboard from "./components/AdminDashboard";
 import Booking from "./components/Booking";
 import Register from "./components/Register";
 import ContactUs from "./components/ContactUs";
+import AboutUsPage from "./components/AboutUsPage";
 
 function App() {
   
@@ -17,7 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/home" element={<LandingPage />} />
-        <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/about-us" element={<AboutUsPage />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/profile" element={<UserDashboard />} />
         <Route path="/admin-profile" element={<AdminDashboard />} />

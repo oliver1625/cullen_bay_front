@@ -31,7 +31,6 @@ function UserDashboard() {
   const [confirmModal, setConfirmModal] = useState(false);
   const [changeScheduleModal, setChangeScheduleModal] = useState(false);
   const [bookingId, setBookingId] = useState("");
-
   const toggleConfrimModal = () => {
     setConfirmModal(!confirmModal);
   };
@@ -86,22 +85,6 @@ function UserDashboard() {
     }
   };
 
-  const fetchSingleBooking = async (bookingId) => {
-    try {
-      const response = await axios.get(
-        `http://localhost:8800/api/booking/${bookingId}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      setSingleBooking(response.data);
-    } catch (err) {
-      setError(err.response?.data?.message || "Error fetching Booking details");
-    }
-  };
-
   const deleteBooking = async (bookingId) => {
     try {
       const response = await axios.delete(
@@ -126,11 +109,6 @@ function UserDashboard() {
     fetchBooking();
   }, []);
 
-  useEffect(() => {
-    if (changeScheduleModal) {
-      fetchSingleBooking(bookingId);
-    }
-  }, [changeScheduleModal]);
   if (loading) {
     return <Loading />;
   }
@@ -186,25 +164,28 @@ function UserDashboard() {
                         <p>Date : {item.date.split("T")[0]}</p>
                         <p>Time : {item.time}</p>
                         <p>Adults : {item.numberofParticipants}</p>
-                        <Button
-                          onClick={() =>
-                            toggleChangeScheduleModal(setBookingId(item._id))
-                          }
-                        >
-                          Change Schedule
-                        </Button>
+                        <div className="d-flex">
+                          <Button
+                            onClick={() => {
+                              toggleChangeScheduleModal();
+                              setBookingId(item._id);
+                            }}
+                          >
+                            Change Schedule
+                          </Button>
+
+                          <Button
+                            className="delete-btn"
+                            onClick={toggleConfrimModal}
+                          >
+                            Cancel
+                          </Button>
+                        </div>
                         <BookNow
-                          singleBooking={singleBooking}
+                          bookingId={bookingId}
                           bookNowToggle={toggleChangeScheduleModal}
                           bookNowModal={changeScheduleModal}
                         />
-
-                        <Button
-                          className="delete-btn"
-                          onClick={toggleConfrimModal}
-                        >
-                          Delete
-                        </Button>
                       </div>
                       <Modal
                         isOpen={confirmModal}
@@ -220,6 +201,7 @@ function UserDashboard() {
                             <ModalFooter>
                               <Button
                                 color="danger"
+                                href="/profile"
                                 onClick={() => deleteBooking(item._id)}
                               >
                                 Yes

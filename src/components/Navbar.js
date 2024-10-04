@@ -1,6 +1,8 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import {
   Col,
   Form,
@@ -40,7 +42,10 @@ function Navbar() {
 
   const userEmail = localStorage.getItem("user");
   const navigate = useNavigate();
-
+  useEffect(() => {
+    AOS.init({ duration: 1000 }); // Initialize AOS and set the duration of the animations
+  }, []);
+  
   const handleLogout = async () => {
     try {
       await axios.post("http://localhost:8800/api/auth/logout"); // Call the logout API
@@ -67,8 +72,8 @@ function Navbar() {
     }
   };
   return (
-    <div className="">
-      <div className="">
+    <div className="top-navbar">
+      <div className="top-navbar" >
         <div className="logo-navbar">
           <div className="logo-container">
             <img src={Logo} alt="" />
@@ -102,7 +107,7 @@ function Navbar() {
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="#">
+                <NavLink href="/about-us">
                   <Link to="/about-us">About Us</Link>
                 </NavLink>
               </NavItem>

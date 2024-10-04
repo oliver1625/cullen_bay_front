@@ -1,11 +1,6 @@
 import React from "react";
 import { Card, CardBody, CardText, CardTitle, Col, Row } from "reactstrap";
 import TopView from "../img/top_view.jpg";
-import Boat from "../img/boat.jpg";
-import FishFamily from "../img/family fish.jpg";
-import GNFish from "../img/GN fish.jpg";
-import NYFish from "../img/NY fish.jpg";
-import GangFish from "../img/gang with fish.jpg";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
@@ -14,13 +9,13 @@ function ContactUs() {
     <section id="contact-us">
       <div className="contact-us-hero" style={{ background: `url(${TopView})` }}>
         <Navbar />
-        <h3 className="text-center py-5">Contact us</h3>
+        <h2 className="text-center py-5">Contact us</h2>
       </div>
       <div className="contact-us-container container">
         <Row className="container">
           <Col sm="6" className="">
             <div className="">
-              <h3 className="mb-5">Tours Departures and Booking Office</h3>
+              <h2 className="mb-5">Tours Departures and Booking Office</h2>
               <h4 className="mb-4">Marina Blvd, Larrakeyah NT 0820</h4>
               <p>Email : Info@cullenbayfishingcharters.com.au</p>
               <p>Telephone : 0498 271 920</p>

@@ -21,8 +21,14 @@ input,
 p {
   font-size: 1.5rem;
 }
-h2 {
+h1 {
   font-size: 4.8rem;
+}
+h2 {
+  font-size: 3rem;
+  font-family: "Lobster", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 h3 {
   font-size: 3rem;
@@ -106,6 +112,9 @@ nav ul li a:hover {
 .custom-modal {
   margin: 0 auto;
 }
+.top-navbar {
+  z-index: 99;
+}
 .nav-bar {
   position: absolute;
   top: 10%;
@@ -115,6 +124,10 @@ nav ul li a:hover {
 .nav-bar .nav-link {
   color: white;
   padding: 1rem;
+  font-family: "Lobster", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2.5rem;
 }
 .nav-bar .nav-link:hover {
   transition: 0.5s ease-in-out;
@@ -143,11 +156,11 @@ nav ul li a:hover {
 
 .hero {
   position: relative;
-  min-height: 90vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), transparent);
+  height: 100vh;
+  /* background: linear-gradient(rgba(0, 0, 0, 0.5), transparent);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: center; */
   color: white;
   display: flex;
   flex-direction: column;
@@ -161,7 +174,84 @@ nav ul li a:hover {
 .hero h3 {
   padding: 5rem;
 }
-
+.hero .carousel-text-center {
+  position: absolute;
+  top: 30%;
+}
+.carousel {
+  height: 100%;
+  width: 100%;
+}
+.carousel-inner {
+  height: 100%;
+  width: 100%;
+}
+.carousel-bg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.carousel-item {
+  height: 100%;
+  width: 100%;
+}
+.carousel-bg .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.9)
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* Welcome Section */
+.welcome-section {
+  padding: 5rem 0;
+}
+.welcome-section h3 {
+  margin-bottom: 3rem;
+}
+.welcome-section img {
+  clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
+}
+/* package Section */
+.package-section {
+  padding: 5rem 0;
+}
+.package-section-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.package-card {
+  width: 30rem;
+  background-color: black;
+  color: white;
+  padding: 2rem;
+  border-radius: 2rem;
+  margin-right: 2rem;
+}
+.package-card .card-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.package-section h3 {
+  margin-bottom: 3rem;
+}
+.package-section .btn {
+  color: #131c27;
+  width: 100%;
+  margin-top: 2rem;
+  background-color: white;
+}
 /* About */
 #about-us {
   min-height: 100vh;
@@ -226,7 +316,7 @@ nav ul li a:hover {
   color: white;
   margin-bottom: 10rem;
 }
-.contact-us-hero h3 {
+.contact-us-hero h2 {
   position: absolute;
   top: 0%;
   left: 50%;
@@ -235,6 +325,24 @@ nav ul li a:hover {
 .contact-us-container {
   min-height: 60vh;
 }
+/* About us page */
+.about-us-page-hero {
+  min-height: 40vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), transparent);
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  margin-bottom: 10rem;
+}
+.about-us-page-hero h2 {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, 175%);
+}
+.about-us-page-container {
+  min-height: 70vh;
+}
 /* User dashboard */
 .booking-card {
   border: 1px solid #dee2e6;
@@ -242,7 +350,7 @@ nav ul li a:hover {
   padding: 1.5rem;
   margin-bottom: 1.5rem;
 }
-.booking-card .delete-btn{
+.booking-card .delete-btn {
   background-color: red;
   margin-left: 1rem;
 }
@@ -250,6 +358,7 @@ nav ul li a:hover {
   position: relative;
   overflow: hidden;
   z-index: 1;
+  border-radius: 2rem;
 }
 .card-image:hover img {
   transform: scale(1.1);
