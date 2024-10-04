@@ -12,15 +12,7 @@ import {
   NavItem,
   NavLink,
   Modal,
-  ModalHeader,
   ModalBody,
-  ModalFooter,
-  Row,
-  CardBody,
-  CardTitle,
-  CardSubtitle,
-  CardText,
-  Card,
 } from "reactstrap";
 function Register(props) {
   const { registerModal, registerToggle } = props;
