@@ -47,7 +47,7 @@ function UserDashboard() {
   const [error, setError] = useState(null);
   const token = localStorage.getItem("token");
   const userId = localStorage.getItem("userId");
-
+  console.log(bookingId, "bookid");
   const fetchProfileDetails = async () => {
     try {
       const response = await axios.get(
@@ -131,7 +131,7 @@ function UserDashboard() {
       >
         <Navbar />
         <h3 className="welcome-text mb-5">
-          Welcome {profileUser && profileUser.first_name}
+          Welcome to Your Profile {profileUser && profileUser.first_name}
         </h3>
       </div>
       <div className="container details py-5">
@@ -176,7 +176,10 @@ function UserDashboard() {
 
                           <Button
                             className="delete-btn"
-                            onClick={toggleConfrimModal}
+                            onClick={() => {
+                              toggleConfrimModal();
+                              setBookingId(item._id);
+                            }}
                           >
                             Cancel
                           </Button>
@@ -202,7 +205,7 @@ function UserDashboard() {
                               <Button
                                 color="danger"
                                 href="/profile"
-                                onClick={() => deleteBooking(item._id)}
+                                onClick={() => deleteBooking(bookingId)}
                               >
                                 Yes
                               </Button>{" "}
@@ -300,7 +303,7 @@ function UserDashboard() {
                       />
                     </Col>
                   </FormGroup>
-                  <Button>Update</Button>
+                  {/* <Button>Update</Button> */}
                 </Form>
               )}
             </div>
