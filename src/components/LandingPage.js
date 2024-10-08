@@ -138,7 +138,7 @@ function LandingPage() {
             <br />
             Contact us now below.
           </h3>
-          <div className="" data-aos="fade-left">
+          <div className="book-now-btn-container" data-aos="fade-down">
             {userEmail && <Button onClick={bookNowToggle}>Book Now</Button>}
             {!userEmail && (
               <Button onClick={registerToggle}>Register to Book Now</Button>

@@ -30,7 +30,12 @@ function Register(props) {
   const [phone_number, setPhoneNumber] = useState(0);
   const [success, setSuccess] = useState(null);
   const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
+  // Function to toggle the state
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
   const navigate = useNavigate();
 
   const handleRegister = async (e) => {
@@ -73,10 +78,8 @@ function Register(props) {
           </div>
           <Form onSubmit={handleRegister} className="form-wrapper">
             <FormGroup>
-              <Label sm={2} for="firstName">
-                First Name
-              </Label>
-              <Col sm={8}>
+              <Label for="firstName">First Name</Label>
+              <Col>
                 <Input
                   id="firstName"
                   name="firstName"
@@ -89,10 +92,8 @@ function Register(props) {
               </Col>
             </FormGroup>
             <FormGroup>
-              <Label sm={2} for="lastName">
-                Last Name
-              </Label>
-              <Col sm={8}>
+              <Label for="lastName">Last Name</Label>
+              <Col>
                 <Input
                   id="lastName"
                   name="lastName"
@@ -105,10 +106,8 @@ function Register(props) {
               </Col>
             </FormGroup>
             <FormGroup>
-              <Label sm={2} for="exampleEmail">
-                Email
-              </Label>
-              <Col sm={8}>
+              <Label for="exampleEmail">Email</Label>
+              <Col>
                 <Input
                   id="exampleEmail"
                   name="email"
@@ -121,10 +120,8 @@ function Register(props) {
               </Col>
             </FormGroup>
             <FormGroup>
-              <Label sm={8} for="phoneNumber">
-                Phone Number
-              </Label>
-              <Col sm={8}>
+              <Label for="phoneNumber">Phone Number</Label>
+              <Col>
                 <Input
                   id="phoneNumber"
                   name="phoneNumber"
@@ -137,19 +134,20 @@ function Register(props) {
               </Col>
             </FormGroup>
             <FormGroup>
-              <Label sm={2} for="examplePassword">
-                Password
-              </Label>
-              <Col sm={8}>
+              <Label for="examplePassword">Password</Label>
+              <Col className="password-input">
                 <Input
-                  id="examplePassword"
+                  id="password"
                   name="password"
                   placeholder="Enter your Password"
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
+                <Button className="show-btn" onClick={togglePasswordVisibility}>
+                  {showPassword ? "Hide" : "Show"}
+                </Button>
               </Col>
             </FormGroup>
             <p className="mt-3 mb-0 error-msg">{error}</p>

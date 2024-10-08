@@ -53,6 +53,7 @@ function BookNow(props) {
   const [time, setTime] = useState("10:00");
   const [error, setError] = useState("");
   const [bookingDetails, setBookingDetails] = useState([]);
+  const navigate = useNavigate();
 
   const userId = localStorage.getItem("userId");
   const email = localStorage.getItem("user");
@@ -102,6 +103,7 @@ function BookNow(props) {
         // setDate(moment(response.data.date).format("YYYY-MM-DD"));
         // setTime(response.data.time);
         setBookingDetails(response.data);
+        window.location.reload(false);
       } else {
         setBookingDetails(response.data);
       }

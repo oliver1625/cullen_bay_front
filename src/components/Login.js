@@ -28,6 +28,12 @@ function Login(props) {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isLoggedin, setIsLoggedin] = useState(false);
+   const [showPassword, setShowPassword] = useState(false);
+
+   // Function to toggle the state
+   const togglePasswordVisibility = () => {
+     setShowPassword(!showPassword);
+   };
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -39,10 +45,12 @@ function Login(props) {
           password,
         }
       );
+      console.log(response.data,'data')
       localStorage.setItem("user", response.data.email);
       localStorage.setItem("userId", response.data._id); 
       localStorage.setItem("token", response.data.token);
-      localStorage.setItem("first_name", response.data.name);
+      localStorage.setItem("name", response.data.name);
+      localStorage.setItem("first_name", response.data.first_name);
       setIsLoggedin(true);
       window.location.reload(false);
       // navigate("/home");
@@ -64,10 +72,8 @@ function Login(props) {
           </div>
           <Form onSubmit={handleLogin} className="form-wrapper">
             <FormGroup>
-              <Label sm={2} for="exampleEmail">
-                Email
-              </Label>
-              <Col sm={8}>
+              <Label for="exampleEmail">Email</Label>
+              <Col>
                 <Input
                   id="exampleEmail"
                   name="email"
@@ -79,25 +85,24 @@ function Login(props) {
               </Col>
             </FormGroup>
             <FormGroup>
-              <Label sm={2} for="examplePassword">
-                Password
-              </Label>
-              <Col sm={8}>
+              <Label for="examplePassword">Password</Label>
+              <Col className="password-input">
                 <Input
-                  id="examplePassword"
+                  id="password"
                   name="password"
                   placeholder="Enter your Password"
                   onChange={(e) => setPassword(e.target.value)}
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   required
                 />
+                <Button className="show-btn" onClick={togglePasswordVisibility}>
+                  {showPassword ? "Hide" : "Show"}
+                </Button>
               </Col>
             </FormGroup>
             <Button type="submit">Login</Button>
           </Form>
-          <div className="px-4">
-            <p>Create an Account?</p>
-          </div>
+          <div className="px-4">{/* <p>Create an Account?</p> */}</div>
         </ModalBody>
       </Modal>
     </div>

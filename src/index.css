@@ -152,8 +152,14 @@ nav ul li a:hover {
 }
 .user-navbar .nav-link {
   color: white;
+  font-family: "Lobster", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2.5rem;
 }
-
+.book-now-btn-container .btn {
+  font-size: 2.5rem;
+}
 .hero {
   position: relative;
   height: 100vh;
@@ -273,6 +279,16 @@ nav ul li a:hover {
 .about-us-container .row {
   margin: auto;
   width: 90%;
+}
+.password-input {
+  position: relative;
+}
+.show-btn {
+  position: absolute;
+  top: 0;
+  margin-top: 0 !important;
+  right: 0;
+  border-radius: 0 !important;
 }
 .form-wrapper {
   /* background: rgba(19, 28, 39, 0.8); */
@@ -449,9 +465,9 @@ img {
 }
 .profile-page-hero .welcome-text {
   position: absolute;
-  top: 50%;
-  right: 27%;
-  transform: translate(-100%, -50%);
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, 175%);
 }
 .profile-page .nav-tabs {
   border-bottom: none;
@@ -502,4 +518,106 @@ img {
 }
 .footer .contact-detail p {
   margin: 0 0 0 1rem;
+}
+
+/* For hamburger */
+/* Navbar base styles */
+/* .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 10px 20px;
+}
+
+.logo {
+  color: white;
+  font-size: 24px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 12px;
+}
+
+.nav-links li a:hover {
+  background-color: #575757;
+  border-radius: 4px;
+} */
+
+/* Mobile menu styles */
+.mobile-view-logo {
+  display: none;
+}
+.mobile-menu-icon {
+  display: none;
+  cursor: pointer;
+  font-size: 6rem;
+  color: white;
+  position: absolute;
+  right: 5%;
+  top: 6%;
+  z-index: 99;
+}
+
+.mobile-nav-links {
+  display: none;
+  list-style: none;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #333;
+  height: 100%;
+  width: 100%;
+  /* padding: 10px 0; */
+  justify-content: space-around;
+  z-index: 9;
+  align-items: center;
+}
+
+.mobile-nav-links.open {
+  display: flex;
+}
+
+.mobile-nav-links li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  text-align: center;
+}
+
+.mobile-nav-links li a:hover {
+  background-color: #575757;
+}
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+  .mobile-view-logo {
+    display: block;
+  }
+  .mobile-menu-icon {
+    display: block; 
+    /* top: 0; */
+  }
+  html {
+    font-size: 50%;
+  }
+  .container {
+    width: 85%;
+  }
+  .package-section-inner {
+    flex-direction: column;
+  }
+  .package-card {
+    margin-bottom: 1rem;
+  }
 }
