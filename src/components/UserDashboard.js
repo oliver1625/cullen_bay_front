@@ -51,7 +51,7 @@ function UserDashboard() {
   const fetchProfileDetails = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8800/api/users/${userId}`,
+        `https://oliver.geniuswrite.com/api/users/${userId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -69,11 +69,14 @@ function UserDashboard() {
 
   const fetchBooking = async () => {
     try {
-      const response = await axios.get(`http://localhost:8800/api/booking/`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await axios.get(
+        `https://oliver.geniuswrite.com/api/booking/`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       const filteredBookings = response.data.filter((booking) => {
         return booking.userId === userId;
       });
@@ -88,7 +91,7 @@ function UserDashboard() {
   const deleteBooking = async (bookingId) => {
     try {
       const response = await axios.delete(
-        `http://localhost:8800/api/booking/${bookingId}`,
+        `https://oliver.geniuswrite.com/api/booking/${bookingId}`,
         {
           headers: {
             "Content-Type": "application/json",

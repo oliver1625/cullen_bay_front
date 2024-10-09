@@ -66,7 +66,7 @@ function BookNow(props) {
     try {
       const response = isUpdate
         ? await axios.put(
-            `http://localhost:8800/api/booking/${bookingId}`,
+            `https://oliver.geniuswrite.com/api/booking/${bookingId}`,
             {
               numberofParticipants,
               date,
@@ -81,7 +81,7 @@ function BookNow(props) {
             }
           )
         : await axios.post(
-            `http://localhost:8800/api/booking/${userId}`,
+            `https://oliver.geniuswrite.com/api/booking/${userId}`,
             {
               numberofParticipants,
               date,
@@ -122,7 +122,7 @@ function BookNow(props) {
   const fetchSingleBooking = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8800/api/booking/${bookingId}`,
+        `https://oliver.geniuswrite.com/api/booking/${bookingId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

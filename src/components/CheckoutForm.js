@@ -28,7 +28,7 @@ function CheckoutForm({
       const {
         data: { clientSecret },
       } = await axios.post(
-        `http://localhost:8800/api/create-payment-intent`,
+        `https://oliver.geniuswrite.com/api/create-payment-intent`,
         {
           amount: 30000,
         },
