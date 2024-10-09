@@ -42,7 +42,7 @@ function Register(props) {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:8800/api/auth/register",
+        "https://oliver.geniuswrite.com/api/auth/register",
         {
           first_name,
           last_name,

@@ -61,7 +61,7 @@ function Navbar() {
 
   const handleLogout = async () => {
     try {
-      await axios.post("http://localhost:8800/api/auth/logout"); // Call the logout API
+      await axios.post("https://oliver.geniuswrite.com/api/auth/logout"); // Call the logout API
       localStorage.removeItem("user");
       localStorage.removeItem("userId");
       localStorage.removeItem("token");
