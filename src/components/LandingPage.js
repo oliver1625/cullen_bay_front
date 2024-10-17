@@ -107,10 +107,7 @@ function LandingPage() {
   });
   return (
     <div>
-      <section
-        id="home"
-        className="hero"
-      >
+      <section id="home" className="hero">
         <Navbar />
         <Carousel
           activeIndex={activeIndex}
@@ -152,10 +149,11 @@ function LandingPage() {
             <div className="" data-aos="fade-right">
               <h2 className="mb-5">Welcome</h2>
               <p className="text-muted mb-5">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum,
-                sequi? Odio alias, officiis ratione earum recusandae facilis,
-                adipisci non qui quas harum provident quae amet veritatis
-                similique cupiditate nobis rerum?
+                Cullen Bay Fishing Charters are located in Cullen Bay Darwin NT
+                and leaves from the ferry terminal. We specialise in bluewater,
+                reef and game fishing. Using local businesses for our catering
+                and taking you on an adventure and fishing experience you will
+                never forget.
               </p>
               {userEmail && <Button onClick={bookNowToggle}>Book Now</Button>}
               {!userEmail && (

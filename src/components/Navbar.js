@@ -77,7 +77,10 @@ function Navbar() {
       <div className="top-navbar desktop-nav">
         <div className="logo-navbar">
           <div className="logo-container">
-            <img src={Logo} alt="" />
+            <Link to="/home">
+              {" "}
+              <img src={Logo} alt="" />
+            </Link>
           </div>
         </div>
         <header className="nav-bar">
