@@ -1,14 +1,12 @@
 import React, { useEffect } from "react";
-import { Card, CardBody, CardText, CardTitle, Col, Row } from "reactstrap";
+import { Card, CardBody, CardTitle, Col, Row } from "reactstrap";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import TopView from "../img/top_view.jpg";
 import Boat from "../img/boat.jpg";
 import FishFamily from "../img/family_fish.jpg";
 import GNFish from "../img/GN_fish.jpg";
-import NYFish from "../img/NY fish.jpg";
 import GangFish from "../img/gang_fish.jpg";
-import Navbar from "./Navbar";
 
 function AboutUs() {
   useEffect(() => {
@@ -28,8 +26,7 @@ function AboutUs() {
                     <div className="overlay"></div>
 
                     <CardTitle className="card-title" tag="h5">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Accusantium, blanditiis.
+                      Specialising in bluewater reef & game fishing
                     </CardTitle>
                   </div>
                 </CardBody>
@@ -42,8 +39,7 @@ function AboutUs() {
                     <img className="" src={FishFamily} alt="" />
                     <div className="overlay"></div>
                     <CardTitle className="card-title" tag="h5">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Fugiat quisquam, autem quaerat atque sed expedita!
+                      Grab Your Fish with your Family
                     </CardTitle>
                   </div>
                 </CardBody>
@@ -57,9 +53,7 @@ function AboutUs() {
                     <div className="overlay"></div>
 
                     <CardTitle className="card-title" tag="h5">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Quasi tempora veniam, in possimus facere at quas itaque
-                      voluptate voluptas dolorum.
+                      Fishing TIme
                     </CardTitle>
                   </div>
                 </CardBody>
@@ -73,8 +67,7 @@ function AboutUs() {
                     <div className="overlay"></div>
 
                     <CardTitle className="card-title" tag="h5">
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                      Dolorum minima molestiae ex sequi, accusamus quam.
+                      Great experience
                     </CardTitle>
                   </div>
                 </CardBody>

@@ -3,12 +3,17 @@ import axios from "axios";
 import moment from "moment";
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
-import { Modal, Form, FormGroup, Label, Button, ModalBody } from "reactstrap";
+import {
+  Modal,
+  Form,
+  FormGroup,
+  Label,
+  Button,
+  ModalBody,
+  Tooltip,
+} from "reactstrap";
 
-function CheckoutForm({
-  bookingDetails,
-  handleForm,
-}) {
+function CheckoutForm({ bookingDetails, handleForm }) {
   const stripe = useStripe();
   const elements = useElements();
   const [processing, setProcessing] = useState(false);
@@ -17,6 +22,9 @@ function CheckoutForm({
   const [confirmModal, setConfirmModal] = useState(false);
   const location = useLocation();
   const isProfilePage = location.pathname === "/profile";
+  const [tooltipOpen, setTooltipOpen] = useState(false);
+  const toggle = () => setTooltipOpen(!tooltipOpen);
+
   const toggleConfrimModal = () => {
     setConfirmModal(!confirmModal);
   };
@@ -77,12 +85,25 @@ function CheckoutForm({
     <Form onSubmit={handleFormAndPayment}>
       {!isProfilePage ? (
         <div>
-          <FormGroup>
+          <FormGroup rel="noreferrer" id="TooltipExample">
             <Label for="card" className="mb-4">
               Card Information
             </Label>
             <CardElement id="card" />
           </FormGroup>
+          <Tooltip
+            // {...args}
+            isOpen={tooltipOpen}
+            target="TooltipExample"
+            toggle={toggle}
+          >
+            Test Credentials:
+            Card Number 4242424242424242
+            Future Date
+            CVC 123
+            Zip 12345
+
+          </Tooltip>
           <Button
             type="submit"
             disabled={!stripe || processing}
